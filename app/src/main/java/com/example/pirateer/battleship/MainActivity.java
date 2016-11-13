@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button A1 , A2 , A3 , A4 , A5 , A6 , A7 , A8;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button G1 , G2 , G3 , G4 , G5 , G6 , G7 , G8;
     Button H1 , H2 , H3 , H4 , H5 , H6 , H7 , H8;
     TextView title;
+    ArrayList<String> battleShips = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         title = (TextView) findViewById(R.id.title);
 
         setBattleShips();
+        String a = "";
+        for(String S : battleShips)
+            a += S + " ";
+
+        title.setText(a);
 
         /*A1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +119,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setBattleShips() {
+        int horizontal = (int) (Math.random() * 6);
+        int determine = (int) (Math.random() * 10);
 
+        if(determine % 2 == 0)
+            setUpHorizontal(horizontal);
+        else
+            setUpVerical(horizontal);
+    }
+
+    private void setUpHorizontal(int horizontal) {
+        int vertical = (int) (Math.random() * 6);
+
+        for(int i = 0 ; i < 3 ; i++){
+            String S = "";
+            S += (char) (horizontal + 65);
+            S += (vertical + i);
+            battleShips.add(S);
+        }
+    }
+
+    private void setUpVerical(int horiontal) {
+        int vertical = (int) (Math.random() * 8);
+
+        for(int i = 65 ; i < 68 ; i++){
+            String S = "";
+            S += (char) (horiontal + i);
+            S += vertical;
+            battleShips.add(S);
+        }
     }
 
     @Override
@@ -119,7 +155,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         //A1.setOnClickListener(this);
 
-        title.setText("Working" + id);
+
         v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
+        v.setEnabled(false);
     }
 }
