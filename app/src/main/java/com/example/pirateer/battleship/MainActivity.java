@@ -101,10 +101,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         title = (TextView) findViewById(R.id.title);
 
-        setBattleShips();
         String a = "";
-        for(String S : battleShips)
+        for(int i = 0 ; i < 3 ; i++) {
+            setBattleShips();
+        }
+
+        for (String S : battleShips) {
             a += S + " ";
+            int id = getResources().getIdentifier(S, "id", getPackageName());
+            View v = findViewById(id);
+            v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
+        }
+        //a += "|";
 
         title.setText(a);
 
@@ -119,33 +127,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setBattleShips() {
-        int horizontal = (int) (Math.random() * 6);
-        int determine = (int) (Math.random() * 10);
+        int determine = (int) (Math.random() * 2 + 1);
 
         if(determine % 2 == 0)
-            setUpHorizontal(horizontal);
+            setUpHorizontal();
         else
-            setUpVerical(horizontal);
+            setUpVerical();
     }
 
-    private void setUpHorizontal(int horizontal) {
-        int vertical = (int) (Math.random() * 6);
+    private void setUpHorizontal() {
+        int row = (int) (Math.random() * 8);
+        int column = (int) (Math.random() * 6 + 1);
 
         for(int i = 0 ; i < 3 ; i++){
             String S = "";
-            S += (char) (horizontal + 65);
-            S += (vertical + i);
+            S += (char) (row + 65);
+            S += (column + i);
             battleShips.add(S);
         }
     }
 
-    private void setUpVerical(int horiontal) {
-        int vertical = (int) (Math.random() * 8);
+    private void setUpVerical() {
+        int row = (int) (Math.random() * 6);
+        int column = (int) (Math.random() * 8 + 1);
 
         for(int i = 65 ; i < 68 ; i++){
             String S = "";
-            S += (char) (horiontal + i);
-            S += vertical;
+            S += (char) (row + i);
+            S += column;
             battleShips.add(S);
         }
     }
@@ -153,7 +162,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int id = v.getId();
+        title.setText(getResources().getResourceEntryName(id));
         //A1.setOnClickListener(this);
+
 
 
         v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
