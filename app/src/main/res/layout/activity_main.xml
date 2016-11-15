@@ -15,6 +15,41 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:layout_width="49dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:id="@+id/hitButton"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="HIT"
+            android:textSize="18sp"/>
+
+        <Button
+            android:layout_width="49dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:id="@+id/missButton"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="MISS"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button android:layout_height="wrap_content"
             android:layout_width="wrap_content"

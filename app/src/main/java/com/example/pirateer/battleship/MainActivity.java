@@ -20,8 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button F1 , F2 , F3 , F4 , F5 , F6 , F7 , F8;
     Button G1 , G2 , G3 , G4 , G5 , G6 , G7 , G8;
     Button H1 , H2 , H3 , H4 , H5 , H6 , H7 , H8;
+    Button hitButton , missButton;
     TextView title;
-    ArrayList<String> battleShips = new ArrayList<>();
+    ArrayList<Integer> battleShips = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,14 +100,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         (H7 = (Button) findViewById(R.id.H7)).setOnClickListener(this);
         (H8 = (Button) findViewById(R.id.H8)).setOnClickListener(this);
 
+        findViewById(R.id.hitButton).getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);;
+        findViewById(R.id.missButton).getBackground().setColorFilter(Color.parseColor("#A3CC7A"), PorterDuff.Mode.DARKEN);;
+
         title = (TextView) findViewById(R.id.title);
 
-        String a = "";
+        //String a = "";
         for(int i = 0 ; i < 3 ; i++) {
             setBattleShips();
         }
 
-        for (String S : battleShips) {
+        /*for (String S : battleShips) {
             a += S + " ";
             int id = getResources().getIdentifier(S, "id", getPackageName());
             View v = findViewById(id);
@@ -114,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         //a += "|";
 
-        title.setText(a);
+        title.setText(a);*/
 
         /*A1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +147,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String S = "";
             S += (char) (row + 65);
             S += (column + i);
-            battleShips.add(S);
+            int id = getResources().getIdentifier(S, "id", getPackageName());
+            battleShips.add(id);
         }
     }
 
@@ -155,19 +160,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String S = "";
             S += (char) (row + i);
             S += column;
-            battleShips.add(S);
+            int id = getResources().getIdentifier(S, "id", getPackageName());
+            battleShips.add(id);
         }
     }
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
+        int id = v.getId();/*
         title.setText(getResources().getResourceEntryName(id));
         //A1.setOnClickListener(this);
 
 
 
         v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
-        v.setEnabled(false);
+        v.setEnabled(false);*/
+
+        if(battleShips.contains(id)){
+            v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
+            v.setEnabled(false);
+        }
+        else{
+            v.getBackground().setColorFilter(Color.parseColor("#A3CC7A"), PorterDuff.Mode.DARKEN);
+            v.setEnabled(false);
+        }
+
     }
 }
