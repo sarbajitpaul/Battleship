@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             battleShips.remove(battleShips.indexOf(id));
 
             if(battleShips.isEmpty())
-                Toast.makeText(this , "Congratulations! You took " + noOfGuesses + " guesses." , Toast.LENGTH_SHORT).show();
+                Toast.makeText(this , "Congratulations! You took " + noOfGuesses + " guesses." , Toast.LENGTH_LONG).show();
             v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
             v.setEnabled(false);
         }
