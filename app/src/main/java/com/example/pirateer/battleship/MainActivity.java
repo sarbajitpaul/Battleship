@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button H1 , H2 , H3 , H4 , H5 , H6 , H7 , H8;
     TextView title;
     ArrayList<Integer> battleShips = new ArrayList<>();
-    int noOfGuesses = 0;
+    int noOfGuesses = 0 , i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         title = (TextView) findViewById(R.id.title);
 
         //String a = "";
-        for(int i = 0 ; i < 3 ; i++) {
+        for(i = 0 ; i < 3 ; i++) {
             setBattleShips();
         }
 
@@ -137,37 +137,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(determine % 2 == 0)
             setUpHorizontal();
         else
-            setUpVerical();
+            setUpVertical();
     }
 
     private void setUpHorizontal() {
         int row = (int) (Math.random() * 8);
         int column = (int) (Math.random() * 6 + 1);
 
-        //for(int i = 0 ; i < 3 ; i++){
-            String S = "";
-            S += (char) (row + 65);
-            S += column;
-            int id = getResources().getIdentifier(S, "id", getPackageName());
+        String S = "";
+        S += (char) (row + 65);
+        S += column;
+        int id = getResources().getIdentifier(S, "id", getPackageName());
+
+        if(i != 0 && (battleShips.contains(id) || battleShips.contains(id + 1) || battleShips.contains(id + 2)))
+            setUpHorizontal();
+        else {
             battleShips.add(id);
             battleShips.add(++id);
             battleShips.add(++id);
-        //}
+        }
     }
 
-    private void setUpVerical() {
+    private void setUpVertical() {
         int row = (int) (Math.random() * 6);
         int column = (int) (Math.random() * 8 + 1);
 
-        //for(int i = 65 ; i < 68 ; i++){
-            String S = "";
-            S += (char) (row + 65);
-            S += column;
-            int id = getResources().getIdentifier(S, "id", getPackageName());
+        String S = "";
+        S += (char) (row + 65);
+        S += column;
+        int id = getResources().getIdentifier(S, "id", getPackageName());
+
+        if(i != 0 && (battleShips.contains(id) || battleShips.contains(id + 8) || battleShips.contains(id + 16)))
+            setUpVertical();
+        else {
             battleShips.add(id);
             battleShips.add(id + 8);
             battleShips.add(id + 16);
-        //}
+        }
     }
 
     @Override
