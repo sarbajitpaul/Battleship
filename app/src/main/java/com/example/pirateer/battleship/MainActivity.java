@@ -144,40 +144,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int row = (int) (Math.random() * 8);
         int column = (int) (Math.random() * 6 + 1);
 
-        for(int i = 0 ; i < 3 ; i++){
+        //for(int i = 0 ; i < 3 ; i++){
             String S = "";
             S += (char) (row + 65);
-            S += (column + i);
+            S += column;
             int id = getResources().getIdentifier(S, "id", getPackageName());
             battleShips.add(id);
-        }
+            battleShips.add(++id);
+            battleShips.add(++id);
+        //}
     }
 
     private void setUpVerical() {
         int row = (int) (Math.random() * 6);
         int column = (int) (Math.random() * 8 + 1);
 
-        for(int i = 65 ; i < 68 ; i++){
+        //for(int i = 65 ; i < 68 ; i++){
             String S = "";
-            S += (char) (row + i);
+            S += (char) (row + 65);
             S += column;
             int id = getResources().getIdentifier(S, "id", getPackageName());
             battleShips.add(id);
-        }
+            battleShips.add(id + 8);
+            battleShips.add(id + 16);
+        //}
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         noOfGuesses++;
-        /*
-        title.setText(getResources().getResourceEntryName(id));
-        //A1.setOnClickListener(this);
-
-
-
-        v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
-        v.setEnabled(false);*/
 
         if(battleShips.contains(id)){
             battleShips.remove(battleShips.indexOf(id));
@@ -191,6 +187,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.getBackground().setColorFilter(Color.parseColor("#A3CC7A"), PorterDuff.Mode.DARKEN);
             v.setEnabled(false);
         }
-
     }
 }
