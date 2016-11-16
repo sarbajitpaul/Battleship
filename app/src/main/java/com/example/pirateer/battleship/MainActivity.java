@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,9 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button F1 , F2 , F3 , F4 , F5 , F6 , F7 , F8;
     Button G1 , G2 , G3 , G4 , G5 , G6 , G7 , G8;
     Button H1 , H2 , H3 , H4 , H5 , H6 , H7 , H8;
-    Button hitButton , missButton;
     TextView title;
     ArrayList<Integer> battleShips = new ArrayList<>();
+    int noOfGuesses = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,7 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();/*
+        int id = v.getId();
+        noOfGuesses++;
+        /*
         title.setText(getResources().getResourceEntryName(id));
         //A1.setOnClickListener(this);
 
@@ -177,6 +180,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         v.setEnabled(false);*/
 
         if(battleShips.contains(id)){
+            battleShips.remove(battleShips.indexOf(id));
+
+            if(battleShips.isEmpty())
+                Toast.makeText(this , "Congratulations! You took " + noOfGuesses + " guesses." , Toast.LENGTH_SHORT).show();
             v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
             v.setEnabled(false);
         }
