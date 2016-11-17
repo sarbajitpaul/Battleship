@@ -1,5 +1,6 @@
 package com.example.pirateer.battleship;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button F1 , F2 , F3 , F4 , F5 , F6 , F7 , F8;
     Button G1 , G2 , G3 , G4 , G5 , G6 , G7 , G8;
     Button H1 , H2 , H3 , H4 , H5 , H6 , H7 , H8;
+    Button reset;
     TextView title;
     ArrayList<Integer> battleShips = new ArrayList<>();
     int noOfGuesses = 0 , i;
@@ -101,34 +103,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         (H7 = (Button) findViewById(R.id.H7)).setOnClickListener(this);
         (H8 = (Button) findViewById(R.id.H8)).setOnClickListener(this);
 
-        findViewById(R.id.hitButton).getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);;
-        findViewById(R.id.missButton).getBackground().setColorFilter(Color.parseColor("#A3CC7A"), PorterDuff.Mode.DARKEN);;
+        findViewById(R.id.hitButton).getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
+        findViewById(R.id.missButton).getBackground().setColorFilter(Color.parseColor("#A3CC7A"), PorterDuff.Mode.DARKEN);
+
+        reset = (Button) findViewById(R.id.resetButton);
 
         title = (TextView) findViewById(R.id.title);
 
-        //String a = "";
         for(i = 0 ; i < 3 ; i++) {
             setBattleShips();
         }
 
-        /*for (String S : battleShips) {
-            a += S + " ";
-            int id = getResources().getIdentifier(S, "id", getPackageName());
-            View v = findViewById(id);
-            v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
-        }
-        //a += "|";
-
-        title.setText(a);*/
-
-        /*A1.setOnClickListener(new View.OnClickListener() {
+        reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int id = v.getId();
-                title.setText("Working" + id);
-                v.getBackground().setColorFilter(Color.parseColor("#9b0000"), PorterDuff.Mode.DARKEN);
+                Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
-        });*/
+        });
     }
 
     private void setBattleShips() {
