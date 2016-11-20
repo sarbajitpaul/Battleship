@@ -474,7 +474,7 @@
             android:layout_height="match_parent"
             android:text="Instructions"
             android:onClick="launchInstructions"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5" />
 
     </LinearLayout>
 
