@@ -187,4 +187,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setEnabled(false);
         }
     }
+
+    public void launchInstructions(View v){
+        Intent intent = new Intent(this , Instructions.class);
+        startActivity(intent);
+    }
 }

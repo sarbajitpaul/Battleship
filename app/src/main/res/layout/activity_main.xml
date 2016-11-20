@@ -45,6 +45,8 @@
             android:text="MISS"
             android:textSize="18sp" />
 
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -455,12 +457,25 @@
             android:id="@+id/H8"/>
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Reset"
-        android:id="@+id/resetButton"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="50dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Reset"
+            android:id="@+id/resetButton"
+            android:layout_weight="0.5"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Instructions"
+            android:onClick="launchInstructions"
+            android:layout_weight="0.5"/>
+
+    </LinearLayout>
 
 </LinearLayout>
