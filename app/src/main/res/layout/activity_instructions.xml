@@ -4,7 +4,7 @@
     android:id="@+id/activity_instructions"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="50dp"
+    android:padding="20dp"
     tools:context="com.example.pirateer.battleship.Instructions">
 
     <TextView
