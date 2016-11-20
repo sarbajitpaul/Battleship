@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+                Intent i = new Intent(MainActivity.this , MainActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
