@@ -4,29 +4,15 @@
     android:id="@+id/activity_instructions"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="50dp"
     tools:context="com.example.pirateer.battleship.Instructions">
 
     <TextView
-        android:text="Instructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="35sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:text="The game is based on the board game Battleship. Here you have three hidden ships, each taking 3 cells, which you have to sink by hitting them. Press the cells and if it turns RED then it's a HIT. If it turns GREEN then it's a MISS. You have to sink all the 3 ships and at the end you will be given with the number of guesses you took to sink them.Note  Ships can be placed horizontally or vertically. Use the RESET button if you wish to reset the game."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:id="@+id/textView2"
-        android:textSize="25sp"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/instructionText"
+        android:textSize="20sp"/>
 </RelativeLayout>
