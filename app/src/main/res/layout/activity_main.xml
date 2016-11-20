@@ -467,7 +467,7 @@
             android:layout_height="match_parent"
             android:text="Reset"
             android:id="@+id/resetButton"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5" />
 
         <Button
             android:layout_width="match_parent"
