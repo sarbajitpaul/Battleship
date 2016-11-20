@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Battleship</string>
 
-    <string name="instructions">
+    <string name="instructions"><![CDATA[
 
-        <p>The game is based on the board game <bold>Battleship</bold>.</p>
+        <p>The game is based on the board game <b>Battleship</b>.</p>
         <p>Here you have three hidden ships, each taking 3 cells, which you have to sink by hitting them.</p>
-        <p>Press the cells and if it turns <b>RED</b> then it\'s a <b>HIT</b>.</p>
+        <p>Press the cells and if it turns <font color="#9b0000"><b>RED</b></font> then it\'s a <b>HIT</b>.</p>
+        <p>If it turns <font color="#A3CC7A"><b>GREEN</b></font> then it\'s a <b>MISS</b>.</p>
+        <p>You have to sink all the 3 ships and at the end you will be given with the number of guesses you took to sink them.</p>
+        <h3>Note<h3>
+        <p>Ships can be placed horizontally or vertically.</p>
+        <p>Use the <b>RESET</b> button if you wish to reset the game.</p>
 
-    </string>
+    ]]></string>
 </resources>
